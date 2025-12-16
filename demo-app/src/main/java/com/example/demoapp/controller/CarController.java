@@ -1,7 +1,8 @@
-package com.example.demoapp;
+package com.example.demoapp.controller;
 
+import com.example.demoapp.model.Car;
+import com.example.demoapp.service.CarService;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 

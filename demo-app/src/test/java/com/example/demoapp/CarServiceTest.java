@@ -1,5 +1,8 @@
 package com.example.demoapp;
 
+import com.example.demoapp.model.Car;
+import com.example.demoapp.repository.CarRepository;
+import com.example.demoapp.service.CarService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
