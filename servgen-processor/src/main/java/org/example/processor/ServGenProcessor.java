@@ -2,7 +2,7 @@
 //  Copyright © Valdemar Støvring Storgaard, December 2025.|
 //=========================================================|
 
-package io.servgen.processor;
+package org.example.processor;
 
 import io.servgen.annotation.ServGen;
 import com.squareup.javapoet.*;
@@ -16,7 +16,7 @@ import java.util.Set;
 
 /**
  * Annotation processor responsible for generating base CRUD service
- * classes for types annotated with {@link org.example.autocrud.AutoCrudService}.
+ * classes for types annotated with {@link io.servgen.annotation.ServGen}.
  *
  * <p>For each annotated service class, this processor generates an
  * abstract base class named {@code Base<OriginalServiceName>} that:
@@ -30,7 +30,7 @@ import java.util.Set;
  * This approach eliminates the need for repetitive boilerplate code,
  * allowing the concrete service class to focus solely on application-specific business logic.
  *
- *@see org.example.autocrud.AutoCrudService
+ *@see io.servgen.annotation.ServGen
  *@see javax.annotation.processing.AbstractProcessor
  *
 */
