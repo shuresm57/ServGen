@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
  *
  * }</pre>
  *
- * We can now just annotate the class and put entity and repository. The annotation then
+ * We can now just annotate the service class and put entity and repository. The annotation then
  * creates a compiled abstract class, that we can extend to so we have the required methods.
  * If we need to write custom business logical methods, we can still add these to this service, such as the
  * <code>findAllRedCars</code> methods.
