@@ -1,3 +1,7 @@
+//=========================================================|
+//  Copyright © Valdemar Støvring Storgaard, December 2025.|
+//=========================================================|
+
 package com.example.demoapp.integration;
 
 import com.example.demoapp.model.Car;

@@ -1,3 +1,7 @@
+//=========================================================|
+//  Copyright © Valdemar Støvring Storgaard, December 2025.|
+//=========================================================|
+
 package com.example.demoapp.model;
 
 import jakarta.persistence.*;
@@ -6,9 +10,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/**
- * This is just a proof of concept class - go to @CarService for explanation of the <code>AutoCrud</code> annotation.
- */
 
 @Entity
 @Table(name = "persons")

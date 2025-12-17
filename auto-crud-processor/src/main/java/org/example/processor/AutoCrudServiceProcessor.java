@@ -1,3 +1,11 @@
+// |==========================================================|
+// |  Copyright © Valdemar Støvring Storgaard, December 2025  |
+// |==========================================================|
+
+//=========================================================|
+//  Copyright © Valdemar Støvring Storgaard, December 2025.|
+//=========================================================|
+
 package org.example.processor;
 
 import org.example.autocrud.AutoCrudService;
@@ -10,6 +18,26 @@ import javax.lang.model.util.Elements;
 import java.io.IOException;
 import java.util.Set;
 
+/**
+ * Annotation processor responsible for generating base CRUD service
+ * classes for types annotated with {@link org.example.autocrud.AutoCrudService}.
+ *
+ * <p>For each annotated service class, this processor generates an
+ * abstract base class named {@code Base<OriginalServiceName>} that:
+ * <ul>
+ *   <li>Contains a protected final repository field</li>
+ *   <li>Provides common CRUD methods such as:
+ *     {@code findById}, {@code findAll}, {@code save},
+ *     {@code existsById}, and {@code deleteById}</li>
+ * </ul>
+ *
+ * This approach eliminates the need for repetitive boilerplate code,
+ * allowing the concrete service class to focus solely on application-specific business logic.
+ *
+ *@see org.example.autocrud.AutoCrudService
+ *@see javax.annotation.processing.AbstractProcessor
+ *
+*/
 
 @SupportedAnnotationTypes("org.example.autocrud.AutoCrudService")
 @SupportedSourceVersion(SourceVersion.RELEASE_21)
