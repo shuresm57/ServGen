@@ -2,7 +2,7 @@
 //  Copyright © Valdemar Støvring Storgaard, December 2025.|
 //=========================================================|
 
-package io.servgen.demo.integration;
+package com.example.demoapp.integration;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -22,6 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Integration test that verifies annotation processing works end-to-end
+ * This test proves that the {@code BaseEntityService} class contains the correct methods.
  */
 public class AnnotationProcessorIntegrationTest {
 

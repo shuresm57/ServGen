@@ -2,11 +2,11 @@
 //  Copyright © Valdemar Støvring Storgaard, December 2025.|
 //=========================================================|
 
-package io.servgen.demo.service;
+package com.example.demoapp.service;
 
-import io.servgen.demo.service.BaseCarService;
-import io.servgen.demo.model.Car;
-import io.servgen.demo.repository.CarRepository;
+import com.example.demoapp.service.BaseCarService;
+import com.example.demoapp.model.Car;
+import com.example.demoapp.repository.CarRepository;
 import io.servgen.annotation.ServGen;
 import org.springframework.stereotype.Service;
 

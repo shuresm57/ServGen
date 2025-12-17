@@ -2,7 +2,7 @@
 //  Copyright © Valdemar Støvring Storgaard, December 2025.|
 //=========================================================|
 
-package io.servgen.demo.model;
+package com.example.demoapp.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

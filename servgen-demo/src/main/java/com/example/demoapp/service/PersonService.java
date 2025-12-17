@@ -2,19 +2,17 @@
 //  Copyright © Valdemar Støvring Storgaard, December 2025.|
 //=========================================================|
 
-package io.servgen.demo.service;
+package com.example.demoapp.service;
 
-import io.servgen.demo.model.Car;
-import io.servgen.demo.model.Person;
-import io.servgen.demo.repository.CarRepository;
-import io.servgen.demo.repository.PersonRepository;
+import com.example.demoapp.model.Person;
+import com.example.demoapp.repository.PersonRepository;
 import io.servgen.annotation.ServGen;
 import org.springframework.stereotype.Service;
 
 /**
  * This is just a proof of concept class - go to CarService for explanation of the <code>AutoCrud</code> annotation.
  *
- * @see CarService
+ * @see com.example.demoapp.service.CarService;
  */
 
 

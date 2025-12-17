@@ -2,9 +2,9 @@
 //  Copyright © Valdemar Støvring Storgaard, December 2025.|
 //=========================================================|
 
-package io.servgen.demo.repository;
+package com.example.demoapp.repository;
 
-import io.servgen.demo.model.Person;
+import com.example.demoapp.model.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

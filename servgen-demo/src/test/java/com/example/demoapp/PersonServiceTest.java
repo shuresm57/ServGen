@@ -2,11 +2,11 @@
 //  Copyright © Valdemar Støvring Storgaard, December 2025.|
 //=========================================================|
 
-package io.servgen.demo;
+package com.example.demoapp;
 
-import io.servgen.demo.model.Person;
-import io.servgen.demo.repository.PersonRepository;
-import io.servgen.demo.service.PersonService;
+import com.example.demoapp.model.Person;
+import com.example.demoapp.repository.PersonRepository;
+import com.example.demoapp.service.PersonService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
