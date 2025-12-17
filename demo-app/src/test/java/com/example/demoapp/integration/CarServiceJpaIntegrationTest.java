@@ -15,7 +15,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Integration test that verifies the generated base service works with real JPA
+ * This is an integration test, proving that it works with the JPA interface methods.
+ *
  */
 @DataJpaTest
 @Import(CarService.class)
@@ -86,7 +87,7 @@ public class CarServiceJpaIntegrationTest {
         // When: Use custom business method (findAllRedCars)
         List<Car> redCars = carService.findAllRedCars();
 
-        // Then: Should find only red cars (case insensitive)
+        // Then: Should find only red cars (case-insensitive)
         assertEquals(2, redCars.size());
         assertTrue(redCars.stream().allMatch(car -> 
             "red".equalsIgnoreCase(car.getColor())));
