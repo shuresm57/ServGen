@@ -1,6 +1,6 @@
 package com.example.demoapp.service;
 
-import com.example.demoapp.BaseCarService;
+import com.example.demoapp.service.BaseCarService;
 import com.example.demoapp.model.Car;
 import com.example.demoapp.repository.CarRepository;
 import org.example.autocrud.AutoCrudService;

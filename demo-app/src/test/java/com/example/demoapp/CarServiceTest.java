@@ -3,9 +3,10 @@ package com.example.demoapp;
 import com.example.demoapp.model.Car;
 import com.example.demoapp.repository.CarRepository;
 import com.example.demoapp.service.CarService;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -14,25 +15,29 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class CarServiceTest {
+public class CarServiceTest {
 
     @Mock
     private CarRepository carRepository;
+    private static Long carId;
+    private static Car expectedCar;
 
+    @InjectMocks
     private CarService carService;
 
-    @BeforeEach
-    void setUp() {
-        carService = new CarService(carRepository);
+    @BeforeAll
+    static void setUpCar(){
+        carId = 1L;
+        expectedCar = new Car(carId, "Red", 12345);
     }
 
     @Test
     void testFindById() {
         // Given
-        Long carId = 1L;
         Car expectedCar = new Car(carId, "Red", 12345);
         when(carRepository.findById(carId)).thenReturn(Optional.of(expectedCar));
 
@@ -50,14 +55,13 @@ class CarServiceTest {
     @Test
     void testFindByIdNotFound() {
         // Given
-        Long carId = 999L;
         when(carRepository.findById(carId)).thenReturn(Optional.empty());
 
         // When
-        Car actualCar = carService.findById(carId);
+        expectedCar = carService.findById(carId);
 
         // Then
-        assertNull(actualCar);
+        assertNull(expectedCar);
         verify(carRepository).findById(carId);
     }
 
@@ -65,8 +69,8 @@ class CarServiceTest {
     void testFindAll() {
         // Given
         List<Car> expectedCars = Arrays.asList(
-            new Car(1L, "Red", 11111),
-            new Car(2L, "Blue", 22222)
+                new Car(1L, "Red", 11111),
+                new Car(2L, "Blue", 22222)
         );
         when(carRepository.findAll()).thenReturn(expectedCars);
 
@@ -82,15 +86,15 @@ class CarServiceTest {
 
     @Test
     void testSave() {
-        // Given
+        //Given
         Car carToSave = new Car(null, "Green", 33333);
         Car savedCar = new Car(1L, "Green", 33333);
         when(carRepository.save(carToSave)).thenReturn(savedCar);
 
-        // When
+        //When
         Car actualCar = carService.save(carToSave);
 
-        // Then
+        //Then
         assertNotNull(actualCar);
         assertEquals(savedCar.getId(), actualCar.getId());
         assertEquals(savedCar.getColor(), actualCar.getColor());
@@ -101,7 +105,6 @@ class CarServiceTest {
     @Test
     void testExistsById() {
         // Given
-        Long carId = 1L;
         when(carRepository.existsById(carId)).thenReturn(true);
 
         // When
@@ -115,7 +118,6 @@ class CarServiceTest {
     @Test
     void testExistsByIdNotFound() {
         // Given
-        Long carId = 999L;
         when(carRepository.existsById(carId)).thenReturn(false);
 
         // When
@@ -128,9 +130,6 @@ class CarServiceTest {
 
     @Test
     void testDeleteById() {
-        // Given
-        Long carId = 1L;
-
         // When
         carService.deleteById(carId);
 
