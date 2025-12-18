@@ -99,4 +99,27 @@
         </plugins>
     </build>
 
+    <!-- Distribution configuration for GitHub Packages -->
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/shuresm57/AutoService</url>
+        </repository>
+        <snapshotRepository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/shuresm57/AutoService</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <!-- Add repositories for reading from GitHub Packages -->
+    <repositories>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/shuresm57/AutoService</url>
+        </repository>
+    </repositories>
+
 </project>
