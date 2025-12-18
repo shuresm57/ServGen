@@ -1,5 +1,14 @@
 name: Publish package to GitHub Packages
 on:
+  push:
+    branches:
+      - development
+      - main
+  pull_request:
+    branches:
+      - development
+      - main
+  workflow_dispatch:
   release:
     types: [created]
 jobs:
