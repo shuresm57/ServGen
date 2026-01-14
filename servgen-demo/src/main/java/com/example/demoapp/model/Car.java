@@ -5,24 +5,50 @@
 package com.example.demoapp.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "cars")
-@Getter @Setter @AllArgsConstructor @NoArgsConstructor
 public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
     
     @Column(name = "color")
-    String color;
+    private String color;
     
     @Column(name = "reg_no")
-    int regNo;
+    private int regNo;
 
+    public Car() {}
+
+    public Car(Long id, String color, int regNo) {
+        this.id = id;
+        this.color = color;
+        this.regNo = regNo;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public int getRegNo() {
+        return regNo;
+    }
+
+    public void setRegNo(int regNo) {
+        this.regNo = regNo;
+    }
 }

@@ -113,6 +113,11 @@ public class ServGenProcessor extends AbstractProcessor {
                 .addModifiers(Modifier.PUBLIC)
                 .returns(entityClass)
                 .addParameter(Long.class, "id")
+                .addException(ClassName.get("java.lang", "IllegalArgumentException"))
+                .addException(ClassName.get("org.springframework.dao", "DataAccessException"))
+                .beginControlFlow("if (id == null)")
+                .addStatement("throw new $T($S)", IllegalArgumentException.class, "ID cannot be null")
+                .endControlFlow()
                 .addStatement("return repository.findById(id).orElse(null)")
                 .build();
 
@@ -120,12 +125,22 @@ public class ServGenProcessor extends AbstractProcessor {
                 .addModifiers(Modifier.PUBLIC)
                 .returns(boolean.class)
                 .addParameter(Long.class, "id")
+                .addException(ClassName.get("java.lang", "IllegalArgumentException"))
+                .addException(ClassName.get("org.springframework.dao", "DataAccessException"))
+                .beginControlFlow("if (id == null)")
+                .addStatement("throw new $T($S)", IllegalArgumentException.class, "ID cannot be null")
+                .endControlFlow()
                 .addStatement("return repository.existsById(id)")
                 .build();
 
         MethodSpec deleteById = MethodSpec.methodBuilder("deleteById")
                 .addModifiers(Modifier.PUBLIC)
                 .addParameter(Long.class, "id")
+                .addException(ClassName.get("java.lang", "IllegalArgumentException"))
+                .addException(ClassName.get("org.springframework.dao", "DataAccessException"))
+                .beginControlFlow("if (id == null)")
+                .addStatement("throw new $T($S)", IllegalArgumentException.class, "ID cannot be null")
+                .endControlFlow()
                 .addStatement("repository.deleteById(id)")
                 .build();
 
@@ -133,6 +148,11 @@ public class ServGenProcessor extends AbstractProcessor {
                 .addModifiers(Modifier.PUBLIC)
                 .returns(entityClass)
                 .addParameter(entityClass, "entity")
+                .addException(ClassName.get("java.lang", "IllegalArgumentException"))
+                .addException(ClassName.get("org.springframework.dao", "DataAccessException"))
+                .beginControlFlow("if (entity == null)")
+                .addStatement("throw new $T($S)", IllegalArgumentException.class, "Entity cannot be null")
+                .endControlFlow()
                 .addStatement("return repository.save(entity)")
                 .build();
 
@@ -144,6 +164,7 @@ public class ServGenProcessor extends AbstractProcessor {
                                 entityClass
                         )
                 )
+                .addException(ClassName.get("org.springframework.dao", "DataAccessException"))
                 .addStatement("return repository.findAll()")
                 .build();
 

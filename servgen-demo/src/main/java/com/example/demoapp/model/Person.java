@@ -1,19 +1,9 @@
-//=========================================================|
-//  Copyright © Valdemar Støvring Storgaard, December 2025.|
-//=========================================================|
-
 package com.example.demoapp.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 
 @Entity
 @Table(name = "persons")
-@Getter @Setter @AllArgsConstructor @NoArgsConstructor
 public class Person {
 
     @Id
@@ -26,4 +16,35 @@ public class Person {
     @Column(name = "age")
     private int age;
 
+    public Person() {}
+
+    public Person(Long id, String name, int age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 }
